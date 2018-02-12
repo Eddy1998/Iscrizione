@@ -8,11 +8,11 @@
     <form class="form-horizontal" action="riepilogo.php" method="POST">
       <div class="form-group">
         <legend>Cognome</legend>
-        <input type="text" class="form-control" placeholder="Rossi" name="Cognome" required>
+        <input type="text" class="form-control" placeholder="Cognome" name="Cognome" required>
       </div>
       <div class="form-group">
         <legend>Nome</legend>
-        <input type="text" class="form-control" placeholder="Marco" name="Nome" required>
+        <input type="text" class="form-control" placeholder="Nome" name="Nome" required>
       </div>
       <div class="form-group">
         <legend>Sesso</legend>
