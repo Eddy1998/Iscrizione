@@ -56,7 +56,7 @@
       <div class="form-group">
         <legend class="control-label">Password</legend>
         <div>
-          <input type="password" class="form-control" placeholder="Password" required>
+          <input type="password" name=password class="form-control" placeholder="Password" required>
         </div>
       </div>
 

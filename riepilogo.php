@@ -43,14 +43,17 @@
         if(isset($_POST["patente1"])!=false && isset($_POST["patente2"])!=false)
         {
           echo $_POST["patente1"].", ". $_POST["patente2"];
+          $b=3;
         }
         else if(isset($_POST["patente1"])!=false && isset($_POST["patente2"])==false)
         {
           echo $_POST["patente1"];
+          $b=1;
         }
          else if(isset($_POST["patente1"])==false && isset($_POST["patente2"])!=false)
         {
           echo $_POST["patente2"];
+           $b=2;
         }
         else
         {
@@ -63,6 +66,16 @@
         <div font="bold">
           <?php echo $_POST["email"];?>
         </div>
+      </div>
+      <div>
+        <label type=hidden name=Cognome value=<?php echo $_POST["Cognome"];?>></label>
+        <label type=hidden name=Nome value=  <?php echo $_POST["Nome"];?>></label>
+        <label type=hidden name=sesso value= <?php echo $_POST["sesso"];?>></label>
+        <label type=hidden name=nazionalita value=<?php echo $_POST["nazionalita"];?>></label>
+        <label type=hidden name=email value=<?php echo $_POST["email"];?>></label>
+        <label type=hidden name=password value=<?php echo $_POST["password"];?>></label>
+        <label type=hidden name=patente1 value=<?php if($b=3){ echo $_POST["patente1"]; } else if($b=1){ echo $_POST["patente1"];}?>></label>
+        <label type=hidden name=patente2 value=<?php if($b=3){ echo $_POST["patente2"]; } else if($b=2){ echo $_POST["patente2"];} else echo "''"?>></label>
       </div>
       <button type="button"  class="btn btn-danger" onclick="goBack()">Correggi</button>
       <button type="submit" class="btn btn-success" name="btnConferma">Registra</button>

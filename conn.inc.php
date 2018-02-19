@@ -1,5 +1,5 @@
 <?php
-$conn="mysql:host=127.0.0.1; dbname:Registro";
+$conn="mysql:host=localhost; dbname:Registro";
   $user="root";
   $pass="root";
 ?>
