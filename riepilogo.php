@@ -1,6 +1,15 @@
 <html>
   <?php
-  
+ $cognome= $_POST["Cognome"];
+   $nome=$_POST["Nome"];
+   $sesso=$_POST["sesso"];
+   $nazionalita=$_POST["nazionalita"];
+  if(isset($_POST["patente1"])!=false && isset($_POST["patente2"])!=false)
+  {
+    $patente1= $_POST["patente1"];
+    $patente2= $_POST["patente2"];
+  }
+   
   ?> 
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -18,22 +27,22 @@
     <form class="form-horizontal" action="esito.php" method="POST">
       <div class="form-group">
         <legend>Cognome</legend>
-       <?php echo $_POST["Cognome"];?>
+       <?php echo $cognome;?>
       </div>
       <div class="form-group">
         <legend>Nome</legend>
-        <?php echo $_POST["Nome"];?>
+        <?php echo $nome;?>
       </div>
       <div class="form-group">
         <legend>Sesso</legend>
-       <?php echo $_POST["sesso"];?>
+       <?php echo $sesso;?>
       
       </div>
       <div class="form-group">
         <legend>
           Nazionalita
         </legend>
-        <?php echo $_POST["nazionalita"];?>
+        <?php echo $nazionalita?>
       </div>
       <div class="form-group">
         <legend>
