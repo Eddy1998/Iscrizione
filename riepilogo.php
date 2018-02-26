@@ -1,28 +1,11 @@
 <html>
   <?php
- $cognome= $_POST["Cognome"];
-   $nome=$_POST["Nome"];
-   $sesso=$_POST["sesso"];
-   $nazionalita=$_POST["nazionalita"];
+  $cognome= $_POST["Cognome"];
+  $nome=$_POST["Nome"];
+  $sesso=$_POST["sesso"];
+  $nazionalita=$_POST["nazionalita"];
+  $email=$_POST["email"];
   $password=$_POST["password"];
-  if(isset($_POST["patente1"])!=false && isset($_POST["patente2"])!=false)
-  {
-    $b=2;
-    $patente1= $_POST["patente1"];
-    $patente2= $_POST["patente2"];
-  }
-  else if(isset($_POST["patente1"])==false && isset($_POST["patente2"])!=false)
-  {
-    $b=1;
-    $patente=$_POST["patente2"];
-  }
-   else if(isset($_POST["patente1"])!=false && isset($_POST["patente2"])==false)
-   {
-     $b=1;
-     $patente=$_POST["patente1"];
-   }
-  else
-    $b=0;
   ?> 
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -62,21 +45,27 @@
           Patente:
         </legend>
         <?php
-        if(isset($_POST["patente1"])!=false && isset($_POST["patente2"])!=false)
+        if(isset($_POST["patente1"])==true && isset($_POST["patente2"])==true)
         {
           echo $_POST["patente1"].", ". $_POST["patente2"];
+          $patenteA=true;
+          $patenteB=true;
         }
-        else if(isset($_POST["patente1"])!=false && isset($_POST["patente2"])==false)
+        else if(isset($_POST["patente1"])==true && isset($_POST["patente2"])==false)
         {
           echo $_POST["patente1"];
+          $patenteA=true;
+          $patenteB=false;
         }
-         else if(isset($_POST["patente1"])==false && isset($_POST["patente2"])!=false)
+         else if(isset($_POST["patente1"])==false && isset($_POST["patente2"])==true)
         {
           echo $_POST["patente2"];
+          $patenteA=false;
+          $patenteB=true;
         }
         else
         {
-          echo "nessuna";
+          echo "nessuna patente registrata";
         }
         ?>
       </div>
@@ -87,14 +76,14 @@
         </div>
       </div>
       <div>
-        <label type=hidden name=Cognome value=<?php echo $cognome;?>></label>
-        <label type=hidden name=Nome value=  <?php echo $nome;?>></label>
-        <label type=hidden name=sesso value= <?php echo $sesso;?>></label>
-        <label type=hidden name=nazionalita value=<?php echo $nazionalita;?>></label>
-        <label type=hidden name=email value=<?php echo $email;?>></label>
-        <label type=hidden name=password value=<?php echo $password;?>></label>
-        <label type=hidden name=patente1 value=<?php if($b=2){ echo $patente1 '.' $patente2;}?>></label>
-        <label type=hidden name=patente2 value=<?php if($b=1){ echo $patente ?>></label>
+        <label type="text" name="Cognome" value=<?php echo $cognome;?>></label>
+        <label type="text" name="Nome" value=<?php echo $nome;?>></label>
+        <label type="text" name="sesso" value= <?php echo $sesso;?>></label>
+        <label type="text" name="nazionalita" value=<?php echo $nazionalita;?>></label>
+        <label type="text" name="email" value=<?php echo $email;?>></label>
+        <label type="text" name="password" value=<?php echo $password;?>></label>
+        <label type="text" name="patenteA" value=<?php  echo $patenteA;?>></label>
+        <label type="text" name="patenteB" value=<?php  echo $patenteB; ?>></label>
       </div>
       <button type="button"  class="btn btn-danger" onclick="goBack()">Correggi</button>
       <button type="submit" class="btn btn-success" name="btnConferma">Registra</button>
@@ -102,5 +91,4 @@
 
   </div>
 </body>
-
 </html>
