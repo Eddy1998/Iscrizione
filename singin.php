@@ -10,13 +10,13 @@ header('dashboard.php');
   try{
     if(isset($_POST['btnConferma'])){
      $dbh = new PDO($conn,$user,$pass);
-     $stm=$dbh->prepare("SELECT * FROM Registro.Utenti WHERE :u=email AND password=MD5(:p);");
+     $stm=$dbh->prepare("SELECT * FROM Registro.Utenti WHERE email=:u AND password=MD5(:p);");
      $stm->bindValue(":u",$_POST['email']);
      $stm->bindValue(":p",$_POST['password']);
      $stm->execute();
     if($stm->rowCount()>0)
     {
-      $row=$Stm->fetch();
+      $row=$stm->fetch();
       $_SESSION['userid']=$row['email'];
       echo "<h2>Connesso come".$row['nome']." ".$row['cognome']."</h2";
       echo "<a href=\"dashboard.php".">Dashboard</a>";

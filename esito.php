@@ -1,8 +1,8 @@
  <?php
   include 'conn.inc.php';
-    $Cognome=$_POST["Cognome"];
-    $Nome=$_POST['Nome']; 
-    $sesso=$_POST['sesso']; 
+    $Cognome=$_REQUEST["Cognome"];
+    $Nome=$_REQUEST["Nome"]; 
+    $sesso=$_POST["sesso"]; 
     $nazionalita=$_POST['nazionalita'];
     $email=$_POST['email']; 
     $password=$_POST['password'];
@@ -14,7 +14,7 @@
   try{
       $dbh = new PDO($conn,$user,$pass);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $query=$dbh->prepare("INSERT INTO Utenti(cognome,nome,sesso,nazionalita,patente1,patente2,email,password) VALUES(:cognome,:nome,:sesso,:nazionalita,:patente1,:patente2,:email,MD5(:password)");
+      $query=$dbh->prepare("INSERT INTO Utenti(cognome,nome,sesso,nazionalita,patente1,patente2,email,password) VALUES(:cognome,:nome,:sesso,:nazionalita,:patente1,:patente2,:email,MD5(:password))");
       $query->bindValue(":cognome",$Cognome);
       $query->bindValue(":nome",$Nome); 
       $query->bindValue(":sesso",$sesso); 
