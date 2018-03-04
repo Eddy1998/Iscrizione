@@ -18,8 +18,8 @@ header('dashboard.php');
     {
       $row=$stm->fetch();
       $_SESSION['userid']=$row['email'];
-      echo "<h2>Connesso come".$row['nome']." ".$row['cognome']."</h2";
-      echo "<a href=\"dashboard.php".">Dashboard</a>";
+      echo "<h2>Connesso come ".$row['nome']." ".$row['cognome']."</h2";
+      echo "<a href="\dashboard.php">Dashboard</a>";
     }
     else
     {
