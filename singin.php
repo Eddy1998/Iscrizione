@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['userid']));
-header('dashboard.php');
+header('location:dashboard.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,6 +9,7 @@ header('dashboard.php');
   include 'conn.inc.php';
   try{
     if(isset($_POST['btnConferma'])){
+      
      $dbh = new PDO($conn,$user,$pass);
      $stm=$dbh->prepare("SELECT * FROM Registro.Utenti WHERE email=:u AND password=MD5(:p);");
      $stm->bindValue(":u",$_POST['email']);
@@ -18,14 +19,17 @@ header('dashboard.php');
     {
       $row=$stm->fetch();
       $_SESSION['userid']=$row['email'];
-      echo "<h2>Connesso come ".$row['nome']." ".$row['cognome']."</h2";
-      echo "<a href="\dashboard.php">Dashboard</a>";
+      echo "<h2>Connesso come ".$row['nome']." ".$row['cognome']."</h2>";
     }
     else
     {
       echo "401 Dati Inseriti non corretti, riprova di nuovo";
     }
     }
+    else{
+      
+    }
+    
   }
    catch (PDOException $e)
    {
@@ -33,7 +37,7 @@ header('dashboard.php');
    }
   ?>
   <h2>LOGIN</h2>
-  <form class="form-horizontal" action="" method="POST">
+  <form class="form-horizontal" action="" method="POST" type="">
    <div class="form-group">
         <legend class="control-label">Inserisci Email</legend>
         <div>
