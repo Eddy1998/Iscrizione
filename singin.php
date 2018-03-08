@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['userid']));
+if(isset($_SESSION['userid']))
 header('location:dashboard.php');
 ?>
 <!DOCTYPE html>
@@ -20,6 +20,12 @@ header('location:dashboard.php');
       $row=$stm->fetch();
       $_SESSION['userid']=$row['email'];
       echo "<h2>Connesso come ".$row['nome']." ".$row['cognome']."</h2>";
+      ?>
+  <ul>
+    <il><a href="dashboard.php"></a>Your Dashboard</il>
+    <il><a href="sing-out.php"></a>Log Out</il>
+  </ul>
+  <?php
     }
     else
     {
@@ -27,16 +33,8 @@ header('location:dashboard.php');
     }
     }
     else{
-      
-    }
-    
-  }
-   catch (PDOException $e)
-   {
-    echo 'Connection failed: ' . $e->getMessage();
-   }
-  ?>
-  <h2>LOGIN</h2>
+      ?>
+       <h2>LOGIN</h2>
   <form class="form-horizontal" action="" method="POST" type="">
    <div class="form-group">
         <legend class="control-label">Inserisci Email</legend>
@@ -51,6 +49,16 @@ header('location:dashboard.php');
         </div>
     </div>
   <button type="submit" class="btn btn-success" name="btnConferma">Sign In</button>
-  </form>
+  </form><?php
+      
+    }
+    
+  }
+   catch (PDOException $e)
+   {
+    echo 'Connection failed: ' . $e->getMessage();
+   }
+  ?>
+ 
 </html>
   
