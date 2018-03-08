@@ -1,7 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['userid']));
-header("Location: singin.php");
+if(!isset($_SESSION['userid']))
+
+  header("Location: sign-in.php");
 ?>
 <!DOCTYPE hmtl>
 <html>
@@ -9,7 +10,7 @@ header("Location: singin.php");
     Your Dashboard
   </h2>
   <ul>
-     <li><a href="">Main Menu</a> </li>
-    <li><a href="signout.php">Sign-out</a> </li>
+    <li><a href="">Main Menu</a> </li>
+    <li><a href="sign-out.php">Sign-out</a> </li>
   </ul>
 </html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['userid']))
-header('location:dashboard.php');
+header('location: dashboard.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,20 +16,38 @@ header('location:dashboard.php');
      $stm->bindValue(":p",$_POST['password']);
      $stm->execute();
     if($stm->rowCount()>0)
-    {
+    { 
       $row=$stm->fetch();
       $_SESSION['userid']=$row['email'];
-      echo "<h2>Connesso come ".$row['nome']." ".$row['cognome']."</h2>";
+      echo "<h2>Benvenuto ".$row['nome']." ".$row['cognome']." :)</h2>";
       ?>
   <ul>
-    <il><a href="dashboard.php"></a>Your Dashboard</il>
-    <il><a href="sing-out.php"></a>Log Out</il>
+    <il><a href="dashboard.php">Your Dashboard</a</il>
+    <il><a href="sign-out.php">Log Out</a></il>
   </ul>
   <?php
     }
     else
     {
       echo "401 Dati Inseriti non corretti, riprova di nuovo";
+      ?>
+      <h2>LOGIN</h2>
+  <form class="form-horizontal" action="" method="POST" type="">
+   <div class="form-group">
+        <legend class="control-label">Inserisci Email</legend>
+        <div>
+          <input type="email" class="form-control" placeholder="Email" name="email" required>
+        </div>
+   </div>
+   <div class="form-group">
+        <legend class="control-label">Inserisci Password</legend>
+        <div>
+          <input type="password" name=password class="form-control" placeholder="Password" required>
+        </div>
+    </div>
+  <button type="submit" class="btn btn-success" name="btnConferma">Sign In</button>
+  </form>
+      <?php
     }
     }
     else{
