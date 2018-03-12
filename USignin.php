@@ -23,13 +23,13 @@ header('location: dashboard.php');
       ?>
   <ul>
     <il><a href="dashboard.php">Your Dashboard</a</il>
-    <il><a href="sign-out.php">Log Out</a></il>
+    <il><a href="SignOut.php">Log Out</a></il>
   </ul>
   <?php
     }
     else
     {
-      echo "401 Dati Inseriti non corretti, riprova di nuovo";
+      echo "401 Dati Inseriti non corretti";
       ?>
       <h2>LOGIN</h2>
   <form class="form-horizontal" action="" method="POST" type="">

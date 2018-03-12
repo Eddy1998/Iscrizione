@@ -11,6 +11,6 @@ if(!isset($_SESSION['userid']))
   </h2>
   <ul>
     <li><a href="">Main Menu</a> </li>
-    <li><a href="sign-out.php">Sign-out</a> </li>
+    <li><a href="SignOut.php">Sign-out</a> </li>
   </ul>
 </html>
