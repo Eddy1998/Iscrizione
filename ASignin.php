@@ -31,7 +31,7 @@ header('location: dashboard.php');
     {
       echo "401 Dati Inseriti non corretti, riprova di nuovo";
       ?>
-      <h2>LOGINfffsdgfsdfds</h2>
+      <h2>LOGIN</h2>
   <form class="form-horizontal" action="" method="POST" type="">
    <div class="form-group">
         <legend class="control-label">Inserisci Email</legend>
@@ -72,6 +72,7 @@ header('location: dashboard.php');
         </div>
     </div>
   <button type="submit" class="btn btn-success" name="btnConferma">Sign In</button>
+    <h3>Non sei Registrato? <a href="ASignUp.php">Registrati Ora</a></h3>
   </form><?php
       
     }

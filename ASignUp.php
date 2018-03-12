@@ -5,7 +5,7 @@
 <body>
   <a href="Signin.php">sing - in</a>
    <a href="SignOut.php">sing -out</a>
-  <h1 align="center"> Modulo di inscrizione</h1>
+  <h1 align="center"> Iscrizione Autista</h1>
    <div class="row">
   <div class="col-sm-4">
     
@@ -72,11 +72,17 @@
     </form>
 
   </div>
+     </div>
        <div class="col-sm-4">
     
     
   </div>
-  </div>
+     <div class="md-col-12">
+       <h2 position="center">
+         <buttom onclick="location='ASignin.php'" class="btn btn-info">Hai gia un Account?</buttom>
+       </h2>
+     </div>
+  
 </body>
 
 </html>
