@@ -1,5 +1,5 @@
 <?php
-  $conn="mysql:host=localhost;dbname=Registro";
+  $conn="mysql:host=localhost;dbname=stati";
   $user="root";
   $pass="root";
 ?>

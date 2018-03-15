@@ -42,6 +42,14 @@
           <option value="Americana">Americana</option>
           <option value="Altro">Altro</option>
       </select>
+<!--       <select name="nazionalita">
+           <?php 
+          //$sql = mysqli_query($connection, "SELECT nome_stati FROM stati ");
+          //while ($row = $sql->fetch_assoc()){
+          //echo "<option value=\"owner1\">" . $row['nome_stati'] . "</option>";
+         // }
+          ?> -->
+        </select> -->
       </div>
       <div class="form-group">
         <legend>
