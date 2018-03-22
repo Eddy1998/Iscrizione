@@ -90,10 +90,8 @@ cognome, nome, email, username, password, telefono, dataNascita, sesso, nazional
       </div>
       <div class="form-group">
        
-         <label class="checkbox-inline"> 
-          <input id="isSelected" type="checkbox">Patente</input>  
-        </label>
-        <div id="txt">
+   
+        <div>
         <legend> 
           Numero della Patente:
         </legend>
@@ -115,8 +113,6 @@ cognome, nome, email, username, password, telefono, dataNascita, sesso, nazional
   </div>
      </div>
        <div class="col-sm-4">
-    
-    
   </div>
      <div class="md-col-12">
        <h2 position="center">

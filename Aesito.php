@@ -1,33 +1,38 @@
  <?php
   include 'conn.inc.php';
-    $Cognome=$_REQUEST["Cognome"];
-    $Nome=$_REQUEST["Nome"]; 
-    $sesso=$_POST["sesso"]; 
-    $nazionalita=$_POST['nazionalita'];
-    $email=$_POST['email']; 
-    $password=$_POST['password'];
-    $patenteA=$_POST["patenteA"];
-    $patenteB=$_POST["patenteB"];
+      $cognome=$_REQUEST["cognome"];
+      $nome=$_REQUEST["nome"];
+      $email=$_REQUEST["email"];
+      $username=$_REQUEST["user"];
+      $password=$_REQUEST["password"];
+      $telefono=$_REQUEST["telefono"];
+      $nascita=$_REQUEST["nascita"];
+      $sesso=$_REQUEST["sesso"];
+      $nazionalita=$_REQUEST["nazionalita"];
+      $numeropatente=$_REQUEST["patente"];
+      $scadenzapatente=$_REQUEST["scadenzaPatente"];
   ?>
 <html>
   <?php
   try{
       $dbh = new PDO($conn,$user,$pass);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $query=$dbh->prepare("INSERT INTO Utenti(cognome,nome,sesso,nazionalita,patente1,patente2,email,password) VALUES(:cognome,:nome,:sesso,:nazionalita,:patente1,:patente2,:email,MD5(:password))");
-      $query->bindValue(":cognome",$Cognome);
-      $query->bindValue(":nome",$Nome); 
+      $query=$dbh->prepare("INSERT INTO Autista(cognome,nome,email,username,password,telefono,dataNascita,sesso,nazionalita,numeroPatente,scadenzaPatente) VALUES(:cognome,:nome,:email,:username,MD5(:password),:telefono,:dataNascita,:sesso,:nazionalita,:numeroPatente,:scadenzaPatente)");
+      $query->bindValue(":cognome",$cognome);
+      $query->bindValue(":nome",$nome);
+      $query->bindValue(":email",$email);
+      $query->bindValue(":username",$username);
+      $query->bindValue(":password",$password);
+      $query->bindValue(":telefono",$telefono);
+      $query->bindValue(":dataNascita",$nascita);
       $query->bindValue(":sesso",$sesso); 
       $query->bindValue(":nazionalita",$nazionalita);
-      $query->bindValue(":patente1",$patenteA);
-      $query->bindValue(":patente2",$patenteB);  
-      $query->bindValue(":email",$email); 
-      $query->bindValue(":password",$password); 
-  
+      $query->bindValue(":numeroPatente",$numeropatente);
+      $query->bindValue(":scadenzaPatente",$scadenzapatente);  
       if(!$query->execute())
         echo "impossibile registrarsi";
       else
-        echo "Registrazione OKI";
+        echo "Registrazione realizzata con successo";
   } 
   catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
