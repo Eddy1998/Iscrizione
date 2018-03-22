@@ -32,7 +32,7 @@
       if(!$query->execute())
         echo "impossibile registrarsi";
       else
-        echo "Registrazione realizzata con successo";
+        echo "Registrato";//indirizzamento altra pagina
   } 
   catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();

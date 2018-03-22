@@ -13,5 +13,5 @@ if(!isset($_SESSION['userid']))
     <li><a href="">Main Menu</a> </li>
     <li><a href="ASignOut.php">Sign-out</a> </li>
   </ul>
-  <input type="date">darta</input>
+  
 </html>
