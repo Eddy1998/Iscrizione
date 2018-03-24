@@ -12,6 +12,7 @@ if(!isset($_SESSION['userid']))
   <ul>
     <li><a href="">Main Menu</a> </li>
     <li><a href="ASignOut.php">Sign-out</a> </li>
+    <li><a href="Auto.php">Inserire Auto</a> </li>
   </ul>
   
 </html>
