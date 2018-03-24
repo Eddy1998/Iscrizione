@@ -7,7 +7,7 @@
    <a href="ASignOut.php">sing -out</a>
   <div class="col-sm-12" align="center">
     <h1>
-      <b>Benvenuti in CS18</b>
+      <b>Benvenuti in CS</b>
     </h1>
     
   </div>

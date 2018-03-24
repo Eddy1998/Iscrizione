@@ -7,6 +7,7 @@ header('location: dashboard.php');
 <html>
   <?php
   include 'conn.inc.php';
+  
   try{
     if(isset($_POST['btnConferma'])){
       
@@ -20,10 +21,11 @@ header('location: dashboard.php');
       $row=$stm->fetch();
       $_SESSION['userid']=$row['email'];
       echo "<h2>Benvenuto ".$row['nome']." ".$row['cognome']." :)</h2>";
+    
       ?>
   <ul>
     <il><a href="dashboard.php">Your Dashboard</a</il>
-    <il><a href="SignOut.php">Log Out</a></il>
+    <il><a href="ASignOut.php">Log Out</a></il>
   </ul>
   <?php
     }

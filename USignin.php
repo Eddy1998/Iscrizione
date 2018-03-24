@@ -5,13 +5,16 @@ header('location: dashboard.php');
 ?>
 <!DOCTYPE html>
 <html>
+  <h1>
+    Log In Passeggero
+  </h1>
   <?php
   include 'conn.inc.php';
   try{
     if(isset($_POST['btnConferma'])){
       
      $dbh = new PDO($conn,$user,$pass);
-     $stm=$dbh->prepare("SELECT * FROM Registro.Utenti WHERE email=:u AND password=MD5(:p);");
+     $stm=$dbh->prepare("SELECT * FROM carsharing.Passeggero WHERE email=:u AND password=MD5(:p);");
      $stm->bindValue(":u",$_POST['email']);
      $stm->bindValue(":p",$_POST['password']);
      $stm->execute();
@@ -23,7 +26,7 @@ header('location: dashboard.php');
       ?>
   <ul>
     <il><a href="dashboard.php">Your Dashboard</a</il>
-    <il><a href="SignOut.php">Log Out</a></il>
+    <il><a href="USignOut.php">Log Out</a></il>
   </ul>
   <?php
     }
@@ -46,6 +49,7 @@ header('location: dashboard.php');
         </div>
     </div>
   <button type="submit" class="btn btn-success" name="btnConferma">Sign In</button>
+     <h3>Non sei Registrato? <a href="USignUp.php">Registrati Ora</a></h3>
   </form>
       <?php
     }
@@ -67,6 +71,7 @@ header('location: dashboard.php');
         </div>
     </div>
   <button type="submit" class="btn btn-success" name="btnConferma">Sign In</button>
+     <h3>Non sei Registrato? <a href="USignUp.php">Registrati Ora</a></h3>
   </form><?php
       
     }

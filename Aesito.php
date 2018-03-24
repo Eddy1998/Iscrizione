@@ -31,8 +31,10 @@
       $query->bindValue(":scadenzaPatente",$scadenzapatente);  
       if(!$query->execute())
         echo "impossibile registrarsi";
-      else
+      else{
         echo "Registrato";//indirizzamento altra pagina
+        
+      }
   } 
   catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();

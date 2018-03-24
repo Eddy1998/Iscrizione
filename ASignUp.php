@@ -9,13 +9,8 @@ $dbh = new PDO($conn,$user,$pass);
 </head>
   
 <body>
-  <script type='text/javascript'>
-            $('#isSelected').click(function() {
-              $("#txt").toggle(this.checked);
-          });
-   </script>
-  <a href="Signin.php">sing - in</a>
-   <a href="SignOut.php">sing -out</a>
+  <a href="ASignin.php">sing - in</a>
+   <a href="ASignOut.php">sing -out</a>
   <h1 align="center"> Iscrizione Autista</h1>
    <div class="row">
   <div class="col-sm-4">
