@@ -45,7 +45,7 @@ else
 {
   ?>
     <h3>
-      Effettua il login per accedre
+    Effettua il login per effettuare quest'operazione
       <a href="ASignin.php">Log In</a>
     </h3>
 <?php
