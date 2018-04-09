@@ -21,7 +21,7 @@ header('location: dashboard.php');
     if($stm->rowCount()>0)
     { 
       $row=$stm->fetch();
-      $_SESSION['userid']=$row['email'];
+      $_SESSION['userid']=$row['idPasseggero'];
       echo "<h2>Benvenuto ".$row['nome']." ".$row['cognome']." :)</h2>";
       ?>
   <ul>
