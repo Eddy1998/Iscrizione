@@ -21,7 +21,7 @@ header('location: dashboard.php');
       $row=$stm->fetch();
       $_SESSION['userid']=$row['idAutista'];
       echo "<h2>Benvenuto ".$row['nome']." ".$row['cognome']." :)</h2>";
-    
+      echo $_SESSION['userid'];
       ?>
   <ul>
     <il><a href="dashboard.php">Your Dashboard</a</il>
