@@ -14,6 +14,5 @@ if(!isset($_SESSION['userid']))
     <li><a href="ASignOut.php">Sign-out</a> </li>
     <li><a href="Auto.php">Inserire Auto</a> </li>
     <li><a href="viaggio.php">Inserire Viaggio</a> </li>
-  </ul>
-  
+  </ul>  
 </html>
