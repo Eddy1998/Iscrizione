@@ -7,8 +7,8 @@ $dbh = new PDO($conn,$user,$pass);
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-  <a href="Signin.php">sing - in</a>
-   <a href="SignOut.php">sing -out</a>
+  <a href="USignin.php">sing - in</a>
+   <a href="USignOut.php">sing -out</a>
   <h1 align="center"> Modulo di inscrizione Passaggero</h1>
    <div class="row">
   <div class="col-sm-4">

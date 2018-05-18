@@ -32,7 +32,8 @@
       if(!$query->execute())
         echo "impossibile registrarsi";
       else{
-        echo "Registrato";//indirizzamento altra pagina
+        echo "Registrato";
+         header("Location: dashboard.php");//indirizzamento altra pagina
         
       }
   } 

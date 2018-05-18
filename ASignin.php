@@ -12,7 +12,7 @@ header('location: dashboard.php');
     if(isset($_POST['btnConferma'])){
       
      $dbh = new PDO($conn,$user,$pass);
-     $stm=$dbh->prepare("SELECT * FROM carsharing.Autista WHERE email=:u AND password=MD5(:p);");
+     $stm=$dbh->prepare("SELECT * FROM carpool.Autista WHERE email=:u AND password=MD5(:p);");
      $stm->bindValue(":u",$_POST['email']);
      $stm->bindValue(":p",$_POST['password']);
      $stm->execute();
