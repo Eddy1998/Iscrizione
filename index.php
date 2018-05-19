@@ -2,6 +2,7 @@
 <?php
   include 'conn.inc.php';
   session_start();
+$dbh = new PDO($conn, $user, $pass);
 ?>
 
   <html>
@@ -37,7 +38,7 @@
         <?php
           if(isset($_SESSION["userid"]))
           {
-            $dbh = new PDO($conn, $user, $pass);
+            
             $stm = $dbh->prepare("SELECT * FROM Autista WHERE idAutista=:id");
             $stm->bindValue(":id", $_SESSION["userid"]);
             $stm->execute();
@@ -212,23 +213,26 @@
               <span>Crea. Guida. Guardagna.</span>
               <span><a class='btn btn-primary btn-lg' href='#'>Profilo</a></span><!--Link al profilo-->
               
-              ";}
-              if(isset($_SESSION["passid"]))
+              ";
+          }
+          if(isset($_SESSION["passid"]))
               {
                 echo "
                  <h2><strong>Benvenuto</strong> ".$row['nome']." ".$row['cognome']."</h2>
               <span>Cerca. Prenota. Viaggia.</span>
               <span><a class='btn btn-primary btn-lg' href='#'>Profilo</a></span><!--Link al profilo-->
               
-                ";}
+                ";
+          }
                  
-              if(!isset($_SESSION["userid"]) && !isset($_SESSION["passid"]))
+         if(!isset($_SESSION["userid"]) && !isset($_SESSION["passid"]))
               {
                 echo "
                 <h2><strong>hub car</strong></h2>
               <span>Prenota. Viaggia. Conosci.</span>
               <span><a class='btn btn-primary btn-lg' href='#Registrazione'>Inizia ora</a></span>
-                ";}
+                ";
+         }
               ?>
 
               </div>
@@ -237,12 +241,7 @@
           </div>
          
              <?php
-          if(isset($_SESSION["userid"]))//autista
-          {
-            
-              echo "  ";
-          }
-              
+          
           if(isset($_SESSION["passid"]))//passeggero
            {
                
@@ -270,43 +269,89 @@
                 </div>
 
                 <div class='col-md-12 text-center heading-section'>
-                  <h3>Cerca la tua destinazione</h3>
-                  
-                   <div id='fh5co-contact' class='animate-box'>
-                  <div class='row'>
-                    <div class='col-md-4'>
-                    </div>
-                    <div class='col-md-4'>
-                      <div class='form-group'>
-                        <input type='text' class='form-control' placeholder='Citt&#224; di Partenza'>
-                      </div>
-                    </div>
-                    <div class='col-md-4'>
-                    </div>
+                  <h3><b>Cerca la tua destinazione</b></h3>
+          <form action='#' method='POST'>
+            <!--Link a cerca viaggi-->
+
+
+            <div id='fh5co-contact' class='animate-box'>
+
+              <div class='row'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-4'>
+                  <div class='form-group'>
+                    <h3>Citt&#224; di Partenza<h3><select id='form-control' class='form-control'>
+                     <option>--Scegli una citt&#224;--</option>";
+                    
+                           
+                      
+                      $stm=$dbh->prepare('SELECT * FROM province');
+                      $stm->execute();
+                      if($stm->rowCount()>0)
+                      {
+                        $counter = 0;
+                        while($counter != $stm->rowCount())
+                        {
+                          $row = $stm->fetch();
+                          console.log($row);
+                            echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
+                          $counter++;
+                        }
+                      } 
+                              
+                       echo "
+                  </select>
                   </div>
-                  <div class='row'>
-                    <div class='col-md-4'>
-                    </div>
-                    <div class='col-md-4'>
-                      <div class='form-group'>
-                        <input type='text' class='form-control' placeholder='Citt&#224; di Destinazione'>
-                      </div>
-                    </div>
-                    <div class='col-md-4'>
-                    </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>
+
+                </div>
+                <div class='col-md-4'>
+                  <div>
+                    <h3>Citt&#224; di Destinazione<h3><select id='form-control' class='form-control'>
+                     <option>--Scegli una citt&#224;--</option>";
+                    
+                           
+                       
+                      $stm=$dbh->prepare('SELECT * FROM province');
+                      $stm->execute();
+                      if($stm->rowCount()>0)
+                      {
+                        $counter = 0;
+                        while($counter != $stm->rowCount())
+                        {
+                          $row = $stm->fetch();
+                       
+                            echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
+                          $counter++;
+                        }
+                      } 
+                        
+                  echo "</select>
+
                   </div>
-                  <div class='row'>
-                    <div class='col-md-4'>
-                    </div>
-                    <div class='col-md-4'>
-                      <div class='form-group'>
-                        <input type='submit' value='Cerca' class='btn btn-primary'>
-                      </div>
-                    </div>
-                    <div class='col-md-4'>
-                    </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-4'>
+                  <div class='form-group'>
+                    <input type='submit' value='Cerca' class='btn btn-primary'>
                   </div>
-            	</div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+            </div>
+          </form>
 
                 </div>
               </div>
@@ -317,7 +362,8 @@
           </div>
 
                  
-                ";}
+                ";
+          }
                  
               if(!isset($_SESSION["userid"]) && !isset($_SESSION["passid"]))
               {
@@ -345,45 +391,93 @@
                 </div>
 
                 <div class='col-md-12 text-center heading-section'>
-                  <h3>Cerca la tua destinazione</h3>
-                  
-                   <div id='fh5co-contact' class='animate-box'>
-                  <div class='row'>
-                    <div class='col-md-4'>
-                    </div>
-                    <div class='col-md-4'>
-                      <div class='form-group'>
-                        <input type='text' class='form-control' placeholder='Citt&#224; di Partenza'>
-                      </div>
-                    </div>
-                    <div class='col-md-4'>
-                    </div>
+                 <h3><b>Cerca la tua destinazione</b></h3>
+          <form action='#' method='POST'>
+            <!--Link a cerca viaggi-->
+
+
+            <div id='fh5co-contact' class='animate-box'>
+
+              <div class='row'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-4'>
+                  <div class='form-group'>
+                    <h3>Citt&#224; di Partenza<h3><select id='form-control' class='form-control'>
+                    <option>--Scegli una citt&#224;--</option>";
+                     
+                           
+                      
+                      $stm=$dbh->prepare('SELECT * FROM province');
+                      $stm->execute();
+                      if($stm->rowCount()>0)
+                      {
+                        $counter = 0;
+                        while($counter != $stm->rowCount())
+                        {
+                          $row = $stm->fetch();
+                          console.log($row);
+                            echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
+                          $counter++;
+                        }
+                      } 
+                              
+                        echo "
+                  </select>
                   </div>
-                  <div class='row'>
-                    <div class='col-md-4'>
-                    </div>
-                    <div class='col-md-4'>
-                      <div class='form-group'>
-                        <input type='text' class='form-control' placeholder='Citt&#224; di Destinazione'>
-                      </div>
-                    </div>
-                    <div class='col-md-4'>
-                    </div>
-                  </div>
-                  <div class='row'>
-                    <div class='col-md-4'>
-                    </div>
-                    <div class='col-md-4'>
-                      <div class='form-group'>
-                        <input type='submit' value='Cerca' class='btn btn-primary'>
-                      </div>
-                    </div>
-                    <div class='col-md-4'>
-                    </div>
-                  </div>
-            	</div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>
 
                 </div>
+                <div class='col-md-4'>
+                  <div>
+                    <h3>Citt&#224; di Destinazione<h3><select id='form-control' class='form-control'>
+                     <option>--Scegli una citt&#224;--</option>";
+                     
+                           
+                       
+                      $stm=$dbh->prepare('SELECT * FROM province');
+                      $stm->execute();
+                      if($stm->rowCount()>0)
+                      {
+                        $counter = 0;
+                        while($counter != $stm->rowCount())
+                        {
+                          $row = $stm->fetch();
+                       
+                            echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
+                          $counter++;
+                        }
+                      } 
+                        echo "
+                  </select>
+
+                  </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-4'>
+                  <div class='form-group'>
+                    <input type='submit' value='Cerca' class='btn btn-primary'>
+                  </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+            </div>
+          </form>
+
+
+                </div>
+                
               </div>
 
 
