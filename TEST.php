@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <?php
-  session_start();
-  
-  include "conn.inc.php";
-$dbh = new PDO($conn, $user, $pass);
-
+session_start();
+if(isset($_SESSION['userid'])||isset($_SESSION['passid']))
+header('location: index.php');
 ?>
 
+<html>
   <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -18,8 +17,23 @@ $dbh = new PDO($conn, $user, $pass);
 
 
 
-    <link rel='shortcut icon' href='favicon.ico'>
+    <link rel='shortcut icon' href='icons/favicon.ico'>
+    <!-- To support old sizes -->
+    <link rel='apple-touch-icon' sizes='57x57' href='icons/logo57.png'>
+    <link rel='apple-touch-icon' sizes='72x72' href='icons/logo72.png'>
+    <link rel='apple-touch-icon' sizes='114x114' href='icons/logo114.png'>
+    <link rel='apple-touch-icon' sizes='144x144' href='icons/logo144.png'>
 
+    <!-- To support new sizes -->
+    <link rel='apple-touch-icon' sizes='60×60' href='icons/logo60.png'>
+    <link rel='apple-touch-icon' sizes='76×76' href='icons/logo76.png'>
+    <link rel='apple-touch-icon' sizes='120×120' href='icons/logo120.png'>
+    <link rel='apple-touch-icon' sizes='152×152' href='icons/logo152.png'>
+    <link rel='apple-touch-icon' sizes='180×180' href='icons/logo180.png'>
+
+    <!-- To support Android -->
+    <link rel='icon' sizes='192×192' href='icons/logo192.png'>
+    <link rel='icon' sizes='128×128' href='icons/logo128.png'>
 
     <!-- Animate.css -->
     <link rel='stylesheet' href='css/animate.css'>
@@ -62,117 +76,138 @@ $dbh = new PDO($conn, $user, $pass);
 
         </div>
 
-        <div class='fh5co-hero'>
+        <div class='fh5co-hero' style='height: 400px;'>
           <div class='fh5co-overlay'></div>
           <div class='fh5co-cover text-center' data-stellar-background-ratio='0.5'>
-            <div class='desc animate-box'>
-              <h2>Registrazione</h2>
-              <span>Diventa autista o diventa passeggero</span>
-              <i class='icon-pencil2'></i>
+            <div class="desc animate-box fadeInUp animated" style="top: 250px;">
+              <h2>Login</h2><span>
+              passeggero
+              </span>
+              <span>Accedi. Prenota. Viaggia.</span>
             </div>
           </div>
 
         </div>
 
-        <div id='fh5co-feature-product' class='fh5co-section-gray'>
-          <div class='container'>
-            <div class='row row-bottom-padded-md'>
-              <div class='row'>
-                <div class='col-md-3'>
-                  <div class='feature-text'>
-                    <h3><span class='number'></span> </h3>
-
-                  </div>
-                </div>
-                <div class='col-md-3'>
-                  <div class='feature-text'>
-                    <div class='text-center  heading-section'>
-                      <h2>Diventa autista e guida con noi</h2>
-                      <span><a class='btn btn-primary btn-lg' href='ASignUp.php'>Autista</a></span>
-                    </div>
-                  </div>
-                </div>
-                <div class='col-md-3'>
-                  <div class='feature-text'>
-                    <div class='text-center heading-section'>
-                      <h2>Registrati e viaggia utilizzando Hub Car</h2>
-                      <span><a class='btn btn-primary btn-lg' href='USignUp.php'>Passeggero</a></span>
-                    </div>
-                  </div>
-                </div>
-                <div class='col-md-3'>
-                  <div class='feature-text'>
-                    <h3><span class='number'></span></h3>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
         <div>
-          <h3>Cerca la tua destinazione</h3>
-          <form action='#' method='POST'>
-            <!--Link a cerca viaggi-->
+              <?php 
+  
+             include "conn.inc.php";
+              $dbh = new PDO($conn, $user, $pass);
+               if(isset($_POST['btnConferma'])){
+      
+               $dbh = new PDO($conn,$user,$pass);
+               $stm=$dbh->prepare("SELECT * FROM carpool.Passeggero WHERE (email=:u||username=:u) AND password=MD5(:p);");
+               $stm->bindValue(":u",$_POST['email']);
+               $stm->bindValue(":p",$_POST['password']);
+               $stm->execute();
+              if($stm->rowCount()>0)
+              { 
+                $row=$stm->fetch();
+               $_SESSION['oassid']=$row['idPasseggero'];
+              header('location: index.php');
+              }
+               else {
+                 ?>  
+               <form action='#' method='POST'>
+                  <!--Link a cerca viaggi-->
 
 
             <div id='fh5co-contact' class='animate-box'>
-
+            <div class='container'>
               <div class='row'>
                 <div class='col-md-4'>
                 </div>
                 <div class='col-md-4'>
                   <div class='form-group'>
-                    <select id='form-control' class='form-control'>
-                    <?php 
-                           
-                      
-                      $stm=$dbh->prepare('SELECT * FROM province');
-                      $stm->execute();
-                      if($stm->rowCount()>0)
-                      {
-                        $counter = 0;
-                        while($counter != $stm->rowCount())
-                        {
-                          $row = $stm->fetch();
-                          console.log($row);
-                            echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
-                          $counter++;
-                        }
-                      } 
-                              
-                        ?>
-                  </select>
+                        <p style='font-size: 25px; color:#ff0000;'>
+                          <b>Dati inseriti non corretti. Riprova</b>
+                    </p>
+										  <input type='text' class='form-control' placeholder='Username o Email' name='email'>
+									
                   </div>
                 </div>
                 <div class='col-md-4'>
                 </div>
               </div>
+              
               <div class='row'>
                 <div class='col-md-4'>
 
                 </div>
                 <div class='col-md-4'>
                   <div>
-                    <select id='form-control' class='form-control'>
-                    <?php 
-                           
-                       
-                      $stm=$dbh->prepare('SELECT * FROM province');
-                      $stm->execute();
-                      if($stm->rowCount()>0)
-                      {
-                        $counter = 0;
-                        while($counter != $stm->rowCount())
-                        {
-                          $row = $stm->fetch();
-                       
-                            echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
-                          $counter++;
-                        }
-                      } 
-                        ?>
-                  </select>
+                    <div class='form-group'>
+										  <input type='password' class='form-control' placeholder='Password' name='password'>
+									  </div>
+
+                  </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-4'>
+                  <div class='form-group' >
+                    <input type='submit' value='Cerca' class='btn btn-primary' name='btnConferma'>
+                  </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+               <div class='row'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-4'>
+                  <div class='form-group'>
+                    <h3>
+                      Non sei registrato? <a href='USignUp.php'>Registrati ora</a>
+                    </h3>
+                  </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+            </div>
+            </div>
+          </form>
+          <?php
+                    }
+          }
+          else {
+              ?>
+          <form action='#' method='POST'>
+            <!--Link a cerca viaggi-->
+
+
+            <div id='fh5co-contact' class='animate-box'>
+            <div class='container'>
+              <div class='row'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-4'>
+                  <div class='form-group'>
+
+										  <input type='text' class='form-control' placeholder='Username o Email' name='email'>
+									
+                  </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+              
+              <div class='row'>
+                <div class='col-md-4'>
+
+                </div>
+                <div class='col-md-4'>
+                  <div>
+                    <div class='form-group'>
+										  <input type='password' class='form-control' placeholder='Password' name='password'>
+									  </div>
 
                   </div>
                 </div>
@@ -184,15 +219,29 @@ $dbh = new PDO($conn, $user, $pass);
                 </div>
                 <div class='col-md-4'>
                   <div class='form-group'>
-                    <input type='submit' value='Cerca' class='btn btn-primary'>
+                    <input type='submit' value='Cerca' class='btn btn-primary' name='btnConferma'>
+                  </div>
+                </div>
+                <div class='col-md-4'>
+                </div>
+              </div>
+               <div class='row'>
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-4'>
+                  <div class='form-group'>
+                    <h3>
+                      Non sei registrato? <a href='USignUp.php'>Registrati ora</a>
+                    </h3>
                   </div>
                 </div>
                 <div class='col-md-4'>
                 </div>
               </div>
             </div>
+            </div>
           </form>
-
+          <?php }?>
         </div>
 
 

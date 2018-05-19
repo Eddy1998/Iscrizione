@@ -15,7 +15,24 @@ $dbh = new PDO($conn, $user, $pass);
     <title>Hub Car </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' href='css/icomoon/style.css'>
-    <link rel='shortcut icon' href='favicon.ico'>
+    <link rel='shortcut icon' href='icons/favicon.ico'>
+    <!-- To support old sizes -->
+    <link rel='apple-touch-icon' sizes='57x57' href='icons/logo57.png'>
+    <link rel='apple-touch-icon' sizes='72x72' href='icons/logo72.png'>
+    <link rel='apple-touch-icon' sizes='114x114' href='icons/logo114.png'>
+    <link rel='apple-touch-icon' sizes='144x144' href='icons/logo144.png'>
+
+    <!-- To support new sizes -->
+    <link rel='apple-touch-icon' sizes='60×60' href='icons/logo60.png'>
+    <link rel='apple-touch-icon' sizes='76×76' href='icons/logo76.png'>
+    <link rel='apple-touch-icon' sizes='120×120' href='icons/logo120.png'>
+    <link rel='apple-touch-icon' sizes='152×152' href='icons/logo152.png'>
+    <link rel='apple-touch-icon' sizes='180×180' href='icons/logo180.png'>
+
+    <!-- To support Android -->
+    <link rel='icon' sizes='192×192' href='icons/logo192.png'>
+    <link rel='icon' sizes='128×128' href='icons/logo128.png'>
+
     <!-- Animate.css -->
     <link rel='stylesheet' href='css/animate.css'>
     <!-- Icomoon Icon Fonts-->
@@ -210,7 +227,7 @@ $dbh = new PDO($conn, $user, $pass);
             
               echo "
               <h2><strong>Benvenuto</strong> ".$row['nome']." ".$row['cognome']."</h2>
-              <span>Crea. Guida. Guardagna.</span>
+              <span>Crea. Guida. Guadagna.</span>
               <span><a class='btn btn-primary btn-lg' href='#'>Profilo</a></span><!--Link al profilo-->
               
               ";
@@ -571,7 +588,7 @@ $dbh = new PDO($conn, $user, $pass);
 								<i class='icon-coin-euro'></i>
 							</span>
                     <div class='feature-copy'>
-                      <h3>Guardagna</h3>
+                      <h3>Guadagna</h3>
                       <p>Portando con te altri passeggeri e facendo risparmiare anche loro</p>
                     </div>
                   </div>
@@ -654,7 +671,5 @@ $dbh = new PDO($conn, $user, $pass);
 
     <!-- Main JS -->
     <script src='js/main.js'></script>
-
   </body>
-
   </html>
