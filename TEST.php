@@ -266,7 +266,7 @@ header('location: index.php');
                            <input   type="radio" name="sesso" value="F" />   Femminile                 
                     </div>
                   <div class="form-group" id='nazionalita'>
-                    <legend>Nazionali&#224;:</legend>
+                    <legend>Nazionalit&#224;:</legend>
                     <select autocomplete='country-name' class='form-control' name='nazionalita' >
                       <option></option>
                     <?php 

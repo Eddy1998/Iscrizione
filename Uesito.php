@@ -1,14 +1,16 @@
  <?php
-  include 'conn.inc.php';
+  include 'conn.inc.php'; 
+    $nome=$_REQUEST["nome"];
     $cognome=$_REQUEST["cognome"];
-  $nome=$_REQUEST["nome"];
-  $email=$_REQUEST["email"];
-  $username=$_REQUEST["user"];
-  $password=$_REQUEST["password"];
-  $telefono=$_REQUEST["telefono"];
-  $nascita=$_REQUEST["nascita"];
-  $sesso=$_REQUEST["sesso"];
-  $nazionalita=$_REQUEST["nazionalita"];
+    $nascita=$_REQUEST["nascita"];
+    $nazionalita=$_REQUEST["nazionalita"];
+    $email=$_REQUEST["email"];
+    $username=$_REQUEST["user"];
+    $password=$_REQUEST["password"];
+    $telefono=$_REQUEST["telefono"];
+    $sesso=$_REQUEST['sesso'];
+  
+ 
   ?>
 <html>
   <?php
