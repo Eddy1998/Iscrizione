@@ -479,7 +479,7 @@ $dbh = new PDO($conn, $user, $pass);
                   <div class='col-md-3'>
                     <div class='feature-text'>
                       <div class='text-center  heading-section'>
-                        <h4>Diventa autista e guida con noi</h4>
+                        <h2>Diventa autista e guida con noi</h2>
                         <span><a class='btn btn-primary btn-lg' href='ASignUp.php'>Autista</a></span>
                       </div>
                     </div>
@@ -487,7 +487,7 @@ $dbh = new PDO($conn, $user, $pass);
                   <div class='col-md-3'>
                     <div class='feature-text'>
                       <div class='text-center heading-section'>
-                        <h4>Registrati e viaggia utilizzando Hub Car</h4>
+                        <h2>Viaggia con Hub Car</h2>
                         <span><a class='btn btn-primary btn-lg' href='USignUp.php'>Passeggero</a></span>
                       </div>
                     </div>
