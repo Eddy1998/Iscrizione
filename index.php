@@ -311,7 +311,7 @@ $dbh = new PDO($conn, $user, $pass);
                         while($counter != $stm->rowCount())
                         {
                           $row = $stm->fetch();
-                          console.log($row);
+                          
                             echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
                           $counter++;
                         }

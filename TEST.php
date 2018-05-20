@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+include 'conn.inc.php';
 session_start();
 if(isset($_SESSION['userid'])||isset($_SESSION['passid']))
 header('location: index.php');
@@ -53,6 +54,7 @@ header('location: index.php');
   </head>
 
   <body>
+    
     <div id='fh5co-wrapper'>
       <div id='fh5co-page'>
         <div id='fh5co-header'>
@@ -80,10 +82,8 @@ header('location: index.php');
           <div class='fh5co-overlay'></div>
           <div class='fh5co-cover text-center' data-stellar-background-ratio='0.5'>
             <div class="desc animate-box fadeInUp animated" style="top: 250px;">
-              <h2>Login</h2><span>
-              passeggero
-              </span>
-              <span>Accedi. Prenota. Viaggia.</span>
+              <h2>Registrazione</h2>
+              Autista
             </div>
           </div>
 
@@ -91,94 +91,7 @@ header('location: index.php');
 
         
         <div>
-              <?php 
-  
-             include "conn.inc.php";
-              $dbh = new PDO($conn, $user, $pass);
-               if(isset($_POST['btnConferma'])){
-      
-               $dbh = new PDO($conn,$user,$pass);
-               $stm=$dbh->prepare("SELECT * FROM carpool.Passeggero WHERE (email=:u||username=:u) AND password=MD5(:p);");
-               $stm->bindValue(":u",$_POST['email']);
-               $stm->bindValue(":p",$_POST['password']);
-               $stm->execute();
-              if($stm->rowCount()>0)
-              { 
-                $row=$stm->fetch();
-               $_SESSION['oassid']=$row['idPasseggero'];
-              header('location: index.php');
-              }
-               else {
-                 ?>  
-               <form action='#' method='POST'>
-                  <!--Link a cerca viaggi-->
-
-
-            <div id='fh5co-contact' class='animate-box'>
-            <div class='container'>
-              <div class='row'>
-                <div class='col-md-4'>
-                </div>
-                <div class='col-md-4'>
-                  <div class='form-group'>
-                        <p style='font-size: 25px; color:#ff0000;'>
-                          <b>Dati inseriti non corretti. Riprova</b>
-                    </p>
-										  <input type='text' class='form-control' placeholder='Username o Email' name='email'>
-									
-                  </div>
-                </div>
-                <div class='col-md-4'>
-                </div>
-              </div>
-              
-              <div class='row'>
-                <div class='col-md-4'>
-
-                </div>
-                <div class='col-md-4'>
-                  <div>
-                    <div class='form-group'>
-										  <input type='password' class='form-control' placeholder='Password' name='password'>
-									  </div>
-
-                  </div>
-                </div>
-                <div class='col-md-4'>
-                </div>
-              </div>
-              <div class='row'>
-                <div class='col-md-4'>
-                </div>
-                <div class='col-md-4'>
-                  <div class='form-group' >
-                    <input type='submit' value='Cerca' class='btn btn-primary' name='btnConferma'>
-                  </div>
-                </div>
-                <div class='col-md-4'>
-                </div>
-              </div>
-               <div class='row'>
-                <div class='col-md-4'>
-                </div>
-                <div class='col-md-4'>
-                  <div class='form-group'>
-                    <h3>
-                      Non sei registrato? <a href='USignUp.php'>Registrati ora</a>
-                    </h3>
-                  </div>
-                </div>
-                <div class='col-md-4'>
-                </div>
-              </div>
-            </div>
-            </div>
-          </form>
-          <?php
-                    }
-          }
-          else {
-              ?>
+            
           <form action='#' method='POST'>
             <!--Link a cerca viaggi-->
 
@@ -189,50 +102,89 @@ header('location: index.php');
                 <div class='col-md-4'>
                 </div>
                 <div class='col-md-4'>
+                    <div class='form-group'>
+										  <input type='text' class='form-control' placeholder='Nome' name='nome'>
+									  </div>
                   <div class='form-group'>
+										  <input type='text' class='form-control' placeholder='Cognome' name='cognome'>
+									  </div>
+                  <div class='form-group'>
+										  <legend>
+                        Data di Nascita
+                    </legend><input type='text' class='form-control' placeholder='gg/mm/aaaa' name='nascita'>
+									  </div>
+                  <div class='form-group'>
+										  <legend>Sesso</legend>
+                           
+                            <input  type="radio" name="sesso" value="M" /> Maschile
+                          
+                          
+                           <input  type="radio" name="sesso" value="F" />   Femminile
+                        
+                    </div>
+                  <div class="form-group ">
+                    <legend>Nazionali&#224;</legend>
+                    <select class='form-control' name='nazionalita' >
+                      <option>--Nazionalit&#224;--</option>
+                    <?php 
+                          $dbh = new PDO($conn,$user,$pass);
+                          $stm=$dbh->prepare('SELECT nome_stati FROM stati');
+                          $stm->execute();
 
-										  <input type='text' class='form-control' placeholder='Username o Email' name='email'>
-									
+                          while ($row=$stm->fetch()) {
+                              echo "<option value='".$row['nome_stati']."'>" . $row['nome_stati'] ."</option>";
+                          }
+                        
+                        ?>
+                      </select>
                   </div>
+                  
+                  <div class='form-group'>
+										  <input type='text' class='form-control' placeholder='E-mail' name='email'>
+									  </div>
+                  <div class='form-group'>
+										  <input type='text' class='form-control' placeholder='Username' name='user'>
+									  </div>
+                  <div class='form-group'>
+										  <input type='password' class='form-control' placeholder='Password' name='password'>
+									  </div>
+                  <div class='form-group '>
+										  <input type='password' class='form-control' placeholder='Conferma Password' name='conferma'>
+									  </div>
+                  <div class='form-group'>
+										  <input type='number' class='form-control' placeholder='Num. di Telefono' name='telefono'>
+									  </div>
+                  <div class='form-group'>
+										  <input type='text' class='form-control' placeholder='Num. della Patente' maxlength="10" name='patente'>
+									  </div>
+                   <div class='form-group '>
+                     <legend>Scadenza della Patente</legend>
+                     <input type='text' class='form-control' placeholder='gg/mm/aaaa' name='scadenzaPatente'>
+									  </div>
+                 
+                  
+                  
                 </div>
                 <div class='col-md-4'>
                 </div>
               </div>
               
-              <div class='row'>
-                <div class='col-md-4'>
-
-                </div>
-                <div class='col-md-4'>
-                  <div>
-                    <div class='form-group'>
-										  <input type='password' class='form-control' placeholder='Password' name='password'>
-									  </div>
-
-                  </div>
-                </div>
-                <div class='col-md-4'>
-                </div>
-              </div>
-              <div class='row'>
-                <div class='col-md-4'>
-                </div>
-                <div class='col-md-4'>
-                  <div class='form-group'>
-                    <input type='submit' value='Cerca' class='btn btn-primary' name='btnConferma'>
-                  </div>
-                </div>
-                <div class='col-md-4'>
-                </div>
-              </div>
+            
+              
                <div class='row'>
                 <div class='col-md-4'>
                 </div>
                 <div class='col-md-4'>
+                  <div class='form-group text-center heading-section'>
+                    <div class='form-group'>
+                    <input type='submit' value='Registra' class='btn btn-primary'>
+                  </div>
                   <div class='form-group'>
-                    <h3>
-                      Non sei registrato? <a href='USignUp.php'>Registrati ora</a>
-                    </h3>
+                    <input type='reset' value='Annulla' class='btn btn-danger'>
+                  </div>
+                    <div class='form-group'>
+                    <input type='button' value='Home' onclick="window.location='index.php';" class='btn btn-default'>
+                  </div>
                   </div>
                 </div>
                 <div class='col-md-4'>
@@ -241,10 +193,11 @@ header('location: index.php');
             </div>
             </div>
           </form>
-          <?php }?>
+          
         </div>
 
 
+       
 
         <footer>
           <div id='footer'>
