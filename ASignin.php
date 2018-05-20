@@ -76,7 +76,7 @@ header('location: index.php');
 
         </div>
 
-        <div class='fh5co-hero' style='height: 400px;'>
+        <div class='fh5co-hero' style='height: 350px;'>
           <div class='fh5co-overlay'></div>
           <div class='fh5co-cover text-center' data-stellar-background-ratio='0.5'>
             <div class="desc animate-box fadeInUp animated" style="top: 250px;">

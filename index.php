@@ -76,7 +76,6 @@ $dbh = new PDO($conn, $user, $pass);
                     <li class='active'>
                       <a href='index.php'>Home <i class='icon-home'></i></a>
                     </li>
-
                     <li>
                       <a class='fh5co-sub-ddown'>".$row['nome']." </a>
                       <ul class='fh5co-sub-menu'>
@@ -87,7 +86,6 @@ $dbh = new PDO($conn, $user, $pass);
                         <div class='img-circle'>
                           <img alt='Immagine' src='http://www.newdesignfile.com/postpic/2009/09/great-west-door-of-st-paul_354180.jpg' style='width: 100px;height: 100px;'>
                           <!--class='img-circle img-responsive'-->
-
                         </div>
                          <div>
                           <p>
@@ -101,16 +99,13 @@ $dbh = new PDO($conn, $user, $pass);
                           <a href='ASignOut.php'><b>Sign Out</b></a>
                         </div>
                        
-
                       </ul>
                     </li>
-
                   </ul>
                 </nav>
               </div>
             </div>
           </header>
-
         </div>
               
               ";
@@ -138,7 +133,6 @@ $dbh = new PDO($conn, $user, $pass);
                     <li class='active'>
                       <a href='index.php'>Home <i class='icon-home'></i></a>
                     </li>
-
                     <li>
                       <a class='fh5co-sub-ddown'>".$row['nome']." </a>
                       <ul class='fh5co-sub-menu'>
@@ -149,7 +143,6 @@ $dbh = new PDO($conn, $user, $pass);
                         <div class='img-circle'>
                           <img alt='Immagine' src='http://www.newdesignfile.com/postpic/2009/09/great-west-door-of-st-paul_354180.jpg' style='width: 100px;height: 100px;'>
                           <!--class='img-circle img-responsive'-->
-
                         </div>
                          <div>
                           <p>
@@ -163,16 +156,13 @@ $dbh = new PDO($conn, $user, $pass);
                           <a href='USignOut.php'><b>Sign Out</b></a>
                         </div>
                        
-
                       </ul>
                     </li>
-
                   </ul>
                 </nav>
               </div>
             </div>
           </header>
-
         </div>
                 ";
             }
@@ -268,31 +258,23 @@ $dbh = new PDO($conn, $user, $pass);
               <div class='row text-center'>
                 <div class='row'>
                   <div class='col-md-4'>
-
                   </div>
                   <div class='col-md-4'>
                     <div class='feature-left'>
                       <h2>Qui puoi trovare la tua citt&#224; di <b>destinazione</b></h2><br>
-
-
                       <h1>
                         <i class='icon-location' style='color: #66D37E;'></i>
                       </h1>
                     </div>
                   </div>
                   <div class='col-md-4'>
-
                   </div>
                 </div>
-
                 <div class='col-md-12 text-center heading-section'>
                   <h3><b>Cerca la tua destinazione</b></h3>
           <form action='#' method='POST'>
             <!--Link a cerca viaggi-->
-
-
             <div id='fh5co-contact' class='animate-box'>
-
               <div class='row'>
                 <div class='col-md-4'>
                 </div>
@@ -326,7 +308,6 @@ $dbh = new PDO($conn, $user, $pass);
               </div>
               <div class='row'>
                 <div class='col-md-4'>
-
                 </div>
                 <div class='col-md-4'>
                   <div>
@@ -350,7 +331,6 @@ $dbh = new PDO($conn, $user, $pass);
                       } 
                         
                   echo "</select>
-
                   </div>
                 </div>
                 <div class='col-md-4'>
@@ -369,15 +349,10 @@ $dbh = new PDO($conn, $user, $pass);
               </div>
             </div>
           </form>
-
                 </div>
               </div>
-
-
-
             </div>
           </div>
-
                  
                 ";
           }
@@ -390,31 +365,23 @@ $dbh = new PDO($conn, $user, $pass);
               <div class='row text-center'>
                 <div class='row'>
                   <div class='col-md-4'>
-
                   </div>
                   <div class='col-md-4'>
                     <div class='feature-left'>
                       <h2>Qui puoi trovare la tua citt&#224; di <b>destinazione</b></h2><br>
-
-
                       <h1>
                         <i class='icon-location' style='color: #66D37E;'></i>
                       </h1>
                     </div>
                   </div>
                   <div class='col-md-4'>
-
                   </div>
                 </div>
-
                 <div class='col-md-12 text-center heading-section'>
                  <h3><b>Cerca la tua destinazione</b></h3>
           <form action='#' method='POST'>
             <!--Link a cerca viaggi-->
-
-
             <div id='fh5co-contact' class='animate-box'>
-
               <div class='row'>
                 <div class='col-md-4'>
                 </div>
@@ -448,7 +415,6 @@ $dbh = new PDO($conn, $user, $pass);
               </div>
               <div class='row'>
                 <div class='col-md-4'>
-
                 </div>
                 <div class='col-md-4'>
                   <div>
@@ -472,7 +438,6 @@ $dbh = new PDO($conn, $user, $pass);
                       } 
                         echo "
                   </select>
-
                   </div>
                 </div>
                 <div class='col-md-4'>
@@ -491,14 +456,9 @@ $dbh = new PDO($conn, $user, $pass);
               </div>
             </div>
           </form>
-
-
                 </div>
                 
               </div>
-
-
-
             </div>
           </div>
            <!--Registrazione-->
@@ -514,7 +474,6 @@ $dbh = new PDO($conn, $user, $pass);
                   <div class='col-md-3'>
                     <div class='feature-text'>
                       <h3><span class='number'></span> </h3>
-
                     </div>
                   </div>
                   <div class='col-md-3'>
@@ -536,7 +495,6 @@ $dbh = new PDO($conn, $user, $pass);
                   <div class='col-md-3'>
                     <div class='feature-text'>
                       <h3><span class='number'></span></h3>
-
                     </div>
                   </div>
                 </div>
