@@ -60,18 +60,8 @@ header('location: index.php');
     var nazionalita = document.modulo.nazionalita.options[document.modulo.nazionalita.selectedIndex].value;
     var telefono = document.modulo.telefono.value;
     var email = document.modulo.email.value;
-    var scadenzaPatente=document.modulo.scadenzaPatente.value;
-      var arr = scadenzaPatente.split("/");
-      var gg =arr[0];
-      var mm=arr[1];
-      var aaaa=arr[2];
-     var preimpostata = new Date(aaaa, mm-1, gg); 
-    var oggi = new Date();
-     
-    var diff = preimpostata.getTime()  - oggi.getTime();
-     
-    
- 
+  
+
     // Espressione regolare dell'email
     var email_reg_exp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
       
@@ -182,51 +172,9 @@ header('location: index.php');
         document.modulo.telefono.focus();
         return false;
     }
-  //Controllo sulla scandenza patente
-    else if (document.modulo.scadenzaPatente.value.substring(2,3) != "/" ||
-             document.modulo.scadenzaPatente.value.substring(5,6) != "/" ||
-             isNaN(document.modulo.scadenzaPatente.value.substring(0,2)) ||
-             isNaN(document.modulo.scadenzaPatente.value.substring(3,5)) ||
-             isNaN(document.modulo.scadenzaPatente.value.substring(6,10))) {
-        $('.correct').remove();
-          $('#scandenza').append("<div class='correct' class='row text-center'><p id='correct' style='color:red;'>Inserire la Scadenza della Patente in formato gg/mm/aaaa</p></div>");
-        document.modulo.scadenzaPatente.value = "";
-        document.modulo.scadenzaPatente.focus();
-        return false;
-    }
-    else if (document.modulo.nascita.value.substring(0,2) > 31) {
-        $('.correct').remove();
-       $('#scadenza').append("<div class='correct' class='row text-center' ><p id='correct' style='color:red;'>Impossibile utilizzare un valore superiore a 31 per i giorni</p></div>");
-        
-        document.modulo.scadenzaPatente.select();
-        return false;
-    }
-    else if (document.modulo.scadenzaPatente.value.substring(3,5) > 12) {
-        $('.correct').remove();
-         $('#scadenza').append("<div class='correct' class='row text-center'><p id='correct' style='color:red;'>Impossibile utilizzare un valore superiore a 12 per i mesi</p></div>");
-        document.modulo.scadenzaPatente.value = "";
-        document.modulo.scadenzaPatente.focus();
-        return false;
-    }
-    else if (document.modulo.scadenzaPatente.value.substring(6,10) < 1900) {
-        $('.correct').remove();
-       $('#scadenza').append("<div class='correct' class='row text-center' ><p id='correct' style='color:red;'>Impossibile utilizzare un valore inferiore a 1900 per l'anno</p></div>");
-        document.modulo.scadenzaPatente.value = "";
-        document.modulo.scadenzaPatente.focus();
-        return false;
-    }
-     
-    //Se la data preimpostata è già passata
-    else if(diff<0||diff==0){
-        $('.correct').remove();
-      $('#scadenza').append("<div class='correct' class='row text-center'><p id='correct' style='color:red;'>Impossibile inserire patente scaduta</p></div>");
-       document.modulo.scadenzaPatente.value = "";
-        document.modulo.scadenzaPatente.focus();
-        return false;
-    }
    //INVIA IL MODULO
   else {
-        document.modulo.action = "Aesito.php";
+        document.modulo.action = "Uesito.php";
         document.modulo.submit();
     }
 }	
@@ -248,12 +196,6 @@ header('location: index.php');
 	</style>
   </head>
   <body>
-    
-     <script type="text/javascript">
-        
-
-         
-      </script>
     <div id='fh5co-wrapper'>
       <div id='fh5co-page'>
         <div id='fh5co-header'>
@@ -261,12 +203,12 @@ header('location: index.php');
             <div class='container'>
               <div class='nav-header'>
                 <a href='#' class='js-fh5co-nav-toggle fh5co-nav-toggle'><i></i></a>
-                <h1 id='fh5co-logo'><a href='index.html'>HUB CAR</a></h1>
+                <h1 id='fh5co-logo'><a href='index.php'>HUB CAR</a></h1>
                 <!-- START #fh5co-menu-wrap -->
                 <nav id='fh5co-menu-wrap' role='navigation'>
                   <ul class='sf-menu' id='fh5co-primary-menu'>
                     <li class='active'>
-                      <a href='index.html'>Home</a>
+                      <a href='index.php'>Home</a>
                     </li>
 
                   </ul>
@@ -282,9 +224,9 @@ header('location: index.php');
           <div class='fh5co-cover text-center' data-stellar-background-ratio='0.5'>
             <div class="desc animate-box fadeInUp animated" style="top: 250px;">
               <h2>Registrazione</h2>
-              Autista
+              Passeggero
               <span>Sei registrato?</span>
-              <span><a class='btn btn-primary btn-lg' href='ASignin.php'>Accedi</a></span>
+              <span><a class='btn btn-primary btn-lg' href='USignin.php'>Accedi</a></span>
             </div>
           </div>
 
@@ -294,9 +236,6 @@ header('location: index.php');
         <div>
             
           <form action='#' method='POST' name='modulo'>
-            <!--Link a cerca viaggi-->
-
-
             <div id='fh5co-contact' class='animate-box'>
             <div class='container'>
               <div class='row'>
@@ -307,13 +246,13 @@ header('location: index.php');
                       <legend>
                         Nome:
                     </legend>
-										  <input type='text' class='form-control' placeholder='Nome' name='nome'>
+										  <input autocomplete='given-name' type='text' class='form-control' placeholder='Nome' name='nome'>
 									  </div>
                   <div class='form-group' id='cognome'>
                     <legend>
                         Cognome:
                     </legend>
-										  <input type='text' class='form-control' placeholder='Cognome' name='cognome'>
+										  <input autocomplete='family-name' type='text' class='form-control' placeholder='Cognome' name='cognome'>
 									  </div>
                   <div class='form-group' id='nascita'>
 										  <legend>
@@ -328,7 +267,7 @@ header('location: index.php');
                     </div>
                   <div class="form-group" id='nazionalita'>
                     <legend>Nazionali&#224;:</legend>
-                    <select class='form-control' name='nazionalita' >
+                    <select autocomplete='country-name' class='form-control' name='nazionalita' >
                       <option></option>
                     <?php 
                           $dbh = new PDO($conn,$user,$pass);
@@ -347,20 +286,20 @@ header('location: index.php');
                     <legend>
                         Email:
                     </legend>
-										  <input type='text' class='form-control' placeholder='Email' name='email'>
+										  <input autocomplete='email' type='text' class='form-control' placeholder='Email' name='email'>
 									  </div>
                   <div class='form-group' id='username'>
                     <legend>
                         Username:
                     </legend>
-										  <input type='text' class='form-control' placeholder='Username' name='user'>
+										  <input  autocomplete="username" type='text' class='form-control' placeholder='Username' name='user'>
 									  </div>
                   <div class='form-group' id='senha'>
                     <div class='form-group' style="margin-bottom: 10px;">
                       <legend>
                         Password:
                     </legend>
-										  <input id='password' type='password' class='form-control' placeholder='Password' name='password'>
+										  <input autocomplete="new-password" id='password' type='password' class='form-control' placeholder='Password' name='password'>
                     </div>
                     <div class='form-group'>
                         <div id="result" class="radius">
@@ -373,33 +312,18 @@ header('location: index.php');
                     <legend>
                         Conferma Password:
                     </legend>
-										  <input type='password' class='form-control' placeholder='Conferma Password' name='conferma'>
+										  <input autocomplete="new-password" type='password' class='form-control' placeholder='Conferma Password' name='conferma'>
 									  </div>
                   <div class='form-group' id='telefono'>
                     <legend>
                         Numero di telefono:
                     </legend>
-										  <input type='number' class='form-control' placeholder='Num. di Telefono' name='telefono'>
+										  <input autocomplete='tel-national' type='number' class='form-control' placeholder='Num. di Telefono' name='telefono'>
 									  </div>
-                  <div class='form-group' id='patente'>
-                    <legend>
-                        Patente:
-                    </legend>
-										  <input type='text' class='form-control' placeholder='Num. della Patente' maxlength="10" name='patente'>
-									  </div>
-                   <div class='form-group' id='scadenza'>
-                     <legend>Scadenza della Patente:</legend>
-                     <input type='text' class='form-control' placeholder='gg/mm/aaaa' name='scadenzaPatente'>
-									  </div>
-                 
-                  
-                  
                 </div>
                 <div class='col-md-4'>
                 </div>
               </div>
-              
-            
               
                <div class='row'>
                 <div class='col-md-4'>
@@ -422,12 +346,8 @@ header('location: index.php');
               </div>
             </div>
             </div>
-          </form>
-          
+          </form>         
         </div>
-
-
-       
 
         <footer>
           <div id='footer'>

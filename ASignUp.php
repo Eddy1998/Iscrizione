@@ -249,11 +249,6 @@ header('location: index.php');
   </head>
   <body>
     
-     <script type="text/javascript">
-        
-
-         
-      </script>
     <div id='fh5co-wrapper'>
       <div id='fh5co-page'>
         <div id='fh5co-header'>
@@ -261,7 +256,7 @@ header('location: index.php');
             <div class='container'>
               <div class='nav-header'>
                 <a href='#' class='js-fh5co-nav-toggle fh5co-nav-toggle'><i></i></a>
-                <h1 id='fh5co-logo'><a href='index.html'>HUB CAR</a></h1>
+                <h1 id='fh5co-logo'><a href='index.php'>HUB CAR</a></h1>
                 <!-- START #fh5co-menu-wrap -->
                 <nav id='fh5co-menu-wrap' role='navigation'>
                   <ul class='sf-menu' id='fh5co-primary-menu'>
@@ -293,27 +288,24 @@ header('location: index.php');
         
         <div>
             
-          <form action='#' method='POST' name='modulo'>
-            <!--Link a cerca viaggi-->
-
-
+          <form  method='POST' name='modulo'>
             <div id='fh5co-contact' class='animate-box'>
             <div class='container'>
               <div class='row'>
                 <div class='col-md-4'>
                 </div>
                 <div class='col-md-4'>
-                    <div class='form-group' id='nome'>
+                     <div class='form-group' id='nome'>
                       <legend>
                         Nome:
                     </legend>
-										  <input type='text' class='form-control' placeholder='Nome' name='nome'>
+										  <input autocomplete='given-name' type='text' class='form-control' placeholder='Nome' name='nome'>
 									  </div>
                   <div class='form-group' id='cognome'>
                     <legend>
                         Cognome:
                     </legend>
-										  <input type='text' class='form-control' placeholder='Cognome' name='cognome'>
+										  <input autocomplete='family-name' type='text' class='form-control' placeholder='Cognome' name='cognome'>
 									  </div>
                   <div class='form-group' id='nascita'>
 										  <legend>
@@ -328,7 +320,7 @@ header('location: index.php');
                     </div>
                   <div class="form-group" id='nazionalita'>
                     <legend>Nazionali&#224;:</legend>
-                    <select class='form-control' name='nazionalita' >
+                    <select autocomplete='country-name' class='form-control' name='nazionalita' >
                       <option></option>
                     <?php 
                           $dbh = new PDO($conn,$user,$pass);
@@ -347,20 +339,20 @@ header('location: index.php');
                     <legend>
                         Email:
                     </legend>
-										  <input type='text' class='form-control' placeholder='Email' name='email'>
+										  <input autocomplete='email' type='text' class='form-control' placeholder='Email' name='email'>
 									  </div>
                   <div class='form-group' id='username'>
                     <legend>
                         Username:
                     </legend>
-										  <input type='text' class='form-control' placeholder='Username' name='user'>
+										  <input  autocomplete="username" type='text' class='form-control' placeholder='Username' name='user'>
 									  </div>
                   <div class='form-group' id='senha'>
                     <div class='form-group' style="margin-bottom: 10px;">
                       <legend>
                         Password:
                     </legend>
-										  <input id='password' type='password' class='form-control' placeholder='Password' name='password'>
+										  <input autocomplete="new-password" id='password' type='password' class='form-control' placeholder='Password' name='password'>
                     </div>
                     <div class='form-group'>
                         <div id="result" class="radius">
@@ -373,13 +365,13 @@ header('location: index.php');
                     <legend>
                         Conferma Password:
                     </legend>
-										  <input type='password' class='form-control' placeholder='Conferma Password' name='conferma'>
+										  <input autocomplete="new-password" type='password' class='form-control' placeholder='Conferma Password' name='conferma'>
 									  </div>
                   <div class='form-group' id='telefono'>
                     <legend>
                         Numero di telefono:
                     </legend>
-										  <input type='number' class='form-control' placeholder='Num. di Telefono' name='telefono'>
+										  <input autocomplete='tel-national' type='number' class='form-control' placeholder='Num. di Telefono' name='telefono'>
 									  </div>
                   <div class='form-group' id='patente'>
                     <legend>
