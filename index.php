@@ -15,23 +15,23 @@ $dbh = new PDO($conn, $user, $pass);
     <title>Hub Car </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' href='css/icomoon/style.css'>
-    <link rel='shortcut icon' href='icons/favicon.ico'>
+     <link rel='shortcut icon' href='icons/new/logo.ico'>
     <!-- To support old sizes -->
-    <link rel='apple-touch-icon' sizes='57x57' href='icons/logo57.png'>
-    <link rel='apple-touch-icon' sizes='72x72' href='icons/logo72.png'>
-    <link rel='apple-touch-icon' sizes='114x114' href='icons/logo114.png'>
-    <link rel='apple-touch-icon' sizes='144x144' href='icons/logo144.png'>
+    <link rel='apple-touch-icon' sizes='57x57' href='icons/new/logo57.png'>
+    <link rel='apple-touch-icon' sizes='72x72' href='icons/new/logo72.png'>
+    <link rel='apple-touch-icon' sizes='114x114' href='icons/new/logo114.png'>
+    <link rel='apple-touch-icon' sizes='144x144' href='icons/new/logo144.png'>
 
     <!-- To support new sizes -->
-    <link rel='apple-touch-icon' sizes='60×60' href='icons/logo60.png'>
-    <link rel='apple-touch-icon' sizes='76×76' href='icons/logo76.png'>
-    <link rel='apple-touch-icon' sizes='120×120' href='icons/logo120.png'>
-    <link rel='apple-touch-icon' sizes='152×152' href='icons/logo152.png'>
-    <link rel='apple-touch-icon' sizes='180×180' href='icons/logo180.png'>
+    <link rel='apple-touch-icon' sizes='60×60' href='icons/new/logo60.png'>
+    <link rel='apple-touch-icon' sizes='76×76' href='icons/new/logo76.png'>
+    <link rel='apple-touch-icon' sizes='120×120' href='icons/new/logo120.png'>
+    <link rel='apple-touch-icon' sizes='152×152' href='icons/new/logo152.png'>
+    <link rel='apple-touch-icon' sizes='180×180' href='icons/new/logo180.png'>
 
     <!-- To support Android -->
-    <link rel='icon' sizes='192×192' href='icons/logo192.png'>
-    <link rel='icon' sizes='128×128' href='icons/logo128.png'>
+    <link rel='icon' sizes='192×192' href='icons/new/logo192.png'>
+    <link rel='icon' sizes='128×128' href='icons/new/logo128.png'>
 
     <!-- Animate.css -->
     <link rel='stylesheet' href='css/animate.css'>
