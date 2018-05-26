@@ -55,7 +55,7 @@ $dbh = new PDO($conn, $user, $pass);
         <?php
           if(isset($_SESSION["userid"]))
           {
-            
+
             $stm = $dbh->prepare("SELECT * FROM Autista WHERE idAutista=:id");
             $stm->bindValue(":id", $_SESSION["userid"]);
             $stm->execute();
@@ -98,7 +98,7 @@ $dbh = new PDO($conn, $user, $pass);
                         <div>
                           <a href='ASignOut.php'><b>Sign Out</b></a>
                         </div>
-                       
+
                       </ul>
                     </li>
                   </ul>
@@ -107,12 +107,12 @@ $dbh = new PDO($conn, $user, $pass);
             </div>
           </header>
         </div>
-              
+
               ";
           }
              if(isset($_SESSION["passid"]))
               {
-                
+
                 $stm = $dbh->prepare("SELECT * FROM Passeggero WHERE idPasseggero=:id");
                 $stm->bindValue(":id", $_SESSION["passid"]);
                 $stm->execute();
@@ -155,7 +155,7 @@ $dbh = new PDO($conn, $user, $pass);
                         <div>
                           <a href='USignOut.php'><b>Sign Out</b></a>
                         </div>
-                       
+
                       </ul>
                     </li>
                   </ul>
@@ -202,7 +202,7 @@ $dbh = new PDO($conn, $user, $pass);
 					</div>
 				</div>
 			</header>
-			
+
 		</div>
              ";}
             ?>
@@ -214,24 +214,24 @@ $dbh = new PDO($conn, $user, $pass);
                 <?php
           if(isset($_SESSION["userid"]))
           {
-            
+
               echo "
-              <h2><strong>Benvenuto</strong> ".$row['nome']." ".$row['cognome']."</h2>
+              <h2><strong>Benvenuto</strong></h2><h2 style=' text-transform: capitalize;'> ".$row['nome']." ".$row['cognome']."</h2>
               <span>Crea. Guida. Guadagna.</span>
               <span><a class='btn btn-primary btn-lg' href='#'>Profilo</a></span><!--Link al profilo-->
-              
+
               ";
           }
           if(isset($_SESSION["passid"]))
               {
                 echo "
-                 <h2><strong>Benvenuto</strong> ".$row['nome']." ".$row['cognome']."</h2>
+                 <h2><strong>Benvenuto</strong> </h2><h2 style=' text-transform: capitalize;'> ".$row['nome']." ".$row['cognome']."</h2>
               <span>Cerca. Prenota. Viaggia.</span>
               <span><a class='btn btn-primary btn-lg' href='#'>Profilo</a></span><!--Link al profilo-->
-              
+
                 ";
           }
-                 
+
          if(!isset($_SESSION["userid"]) && !isset($_SESSION["passid"]))
               {
                 echo "
@@ -246,13 +246,13 @@ $dbh = new PDO($conn, $user, $pass);
             </div>
 
           </div>
-         
+
              <?php
-          
+
           if(isset($_SESSION["passid"]))//passeggero
            {
-               
-                 echo " 
+
+                 echo "
                  <div id='fh5co-services-section' class='fh5co-section-gray' style='padding-bottom: 1px;'>
             <div class='container'>
               <div class='row text-center'>
@@ -282,9 +282,9 @@ $dbh = new PDO($conn, $user, $pass);
                   <div class='form-group'>
                     <h3>Citt&#224; di Partenza<h3><select id='form-control' class='form-control'>
                      <option>--Scegli una citt&#224;--</option>";
-                    
-                           
-                      
+
+
+
                       $stm=$dbh->prepare('SELECT * FROM province');
                       $stm->execute();
                       if($stm->rowCount()>0)
@@ -293,12 +293,12 @@ $dbh = new PDO($conn, $user, $pass);
                         while($counter != $stm->rowCount())
                         {
                           $row = $stm->fetch();
-                          
+
                             echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
                           $counter++;
                         }
-                      } 
-                              
+                      }
+
                        echo "
                   </select>
                   </div>
@@ -313,9 +313,9 @@ $dbh = new PDO($conn, $user, $pass);
                   <div>
                     <h3>Citt&#224; di Destinazione<h3><select id='form-control' class='form-control'>
                      <option>--Scegli una citt&#224;--</option>";
-                    
-                           
-                       
+
+
+
                       $stm=$dbh->prepare('SELECT * FROM province');
                       $stm->execute();
                       if($stm->rowCount()>0)
@@ -324,12 +324,12 @@ $dbh = new PDO($conn, $user, $pass);
                         while($counter != $stm->rowCount())
                         {
                           $row = $stm->fetch();
-                       
+
                             echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
                           $counter++;
                         }
-                      } 
-                        
+                      }
+
                   echo "</select>
                   </div>
                 </div>
@@ -353,10 +353,10 @@ $dbh = new PDO($conn, $user, $pass);
               </div>
             </div>
           </div>
-                 
+
                 ";
           }
-                 
+
               if(!isset($_SESSION["userid"]) && !isset($_SESSION["passid"]))
               {
                 echo "
@@ -389,9 +389,9 @@ $dbh = new PDO($conn, $user, $pass);
                   <div class='form-group'>
                     <h3>Citt&#224; di Partenza<h3><select id='form-control' class='form-control'>
                     <option>--Scegli una citt&#224;--</option>";
-                     
-                           
-                      
+
+
+
                       $stm=$dbh->prepare('SELECT * FROM province');
                       $stm->execute();
                       if($stm->rowCount()>0)
@@ -404,8 +404,8 @@ $dbh = new PDO($conn, $user, $pass);
                             echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
                           $counter++;
                         }
-                      } 
-                              
+                      }
+
                         echo "
                   </select>
                   </div>
@@ -420,9 +420,9 @@ $dbh = new PDO($conn, $user, $pass);
                   <div>
                     <h3>Citt&#224; di Destinazione<h3><select id='form-control' class='form-control'>
                      <option>--Scegli una citt&#224;--</option>";
-                     
-                           
-                       
+
+
+
                       $stm=$dbh->prepare('SELECT * FROM province');
                       $stm->execute();
                       if($stm->rowCount()>0)
@@ -431,11 +431,11 @@ $dbh = new PDO($conn, $user, $pass);
                         while($counter != $stm->rowCount())
                         {
                           $row = $stm->fetch();
-                       
+
                             echo "<option name='" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
                           $counter++;
                         }
-                      } 
+                      }
                         echo "
                   </select>
                   </div>
@@ -457,7 +457,7 @@ $dbh = new PDO($conn, $user, $pass);
             </div>
           </form>
                 </div>
-                
+
               </div>
             </div>
           </div>
@@ -501,15 +501,15 @@ $dbh = new PDO($conn, $user, $pass);
               </div>
             </div>
           </div>
-                
+
                 ";}
               ?>
 
 
 
-            
-         
-        
+
+
+
           <!--about-->
           <div id='fh5co-features'>
             <div class='container'>
